@@ -1,13 +1,17 @@
 {
   "expo": {
-    "name": "MOBLIE_AI",
-    "slug": "MOBLIE_AI",
+    "name": "AI Field Assistant",
+    "slug": "ai-field-assistant",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Ứng dụng cần truy cập máy ảnh để chụp ảnh sự cố hiện trường.",
+        "NSPhotoLibraryUsageDescription": "Ứng dụng cần truy cập thư viện ảnh để đính kèm hình ảnh vào báo cáo."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +20,26 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES"
+      ],
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Ứng dụng cần truy cập thư viện ảnh để chọn hình sự cố.",
+          "cameraPermission": "Ứng dụng cần truy cập máy ảnh để chụp hình hiện trường."
+        }
+      ],
+      "expo-speech-recognition"
+    ]
   }
 }
